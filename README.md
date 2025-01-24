@@ -1,4 +1,4 @@
-content = """# Gemini Chatbot
+# Gemini : Your AI Assistant
 
 ![Chatbot Screenshot](screenshot.jpg)
 
