@@ -38,24 +38,6 @@ Gemini Chatbot is an interactive chatbot application built with Flask for backen
 
 ---
 
-## Getting Started
 
-Follow these steps to set up and run Gemini Chatbot on your local machine.
 
-### Prerequisites
-
-- Python 3.8+
-- pip (Python package manager)
-- Git
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/GeminiChatbot.git
-   cd GeminiChatbot
-
-2. Create a virtual environment:
-   ```python -m venv venv
-venv\Scripts\activate
 
