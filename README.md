@@ -34,6 +34,7 @@ Your AI Assistant is an interactive chatbot application built with Flask for bac
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML, CSS, JavaScript
+- **API**: Gemini
 - **Styling**: Bootstrap 5
 
 ---
