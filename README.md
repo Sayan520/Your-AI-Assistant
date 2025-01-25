@@ -1,8 +1,8 @@
-# Gemini : Your AI Assistant
+# Your AI Assistant
 
 ![Chatbot Screenshot](screenshot.jpg)
 
-Gemini Chatbot is an interactive chatbot application built with Flask for backend logic and JavaScript for frontend interactivity. Designed with user-friendly features, it enables easy integration and customization for various chatbot use cases.
+Your AI Assistant is an interactive chatbot application built with Flask for backend logic and JavaScript for frontend interactivity. Designed with user-friendly features, it enables easy integration and customization for various chatbot use cases.
 
 ---
 
@@ -37,7 +37,7 @@ Gemini Chatbot is an interactive chatbot application built with Flask for backen
 - **Styling**: Bootstrap 5
 
 ---
-
+**Happy Coding.**
 
 
 
