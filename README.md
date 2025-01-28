@@ -41,6 +41,7 @@ Follow these steps to set up and run Gemini Chatbot on your local machine.
 - Git
 
 ## Initial Setup:
+
 This repo currently contains the starter files.
 
 Clone repo and create a virtual environment
@@ -48,7 +49,6 @@ Clone repo and create a virtual environment
 $ git clone https://github.com/Sayan520/Your-AI-Assistant.git
 $ python -m venv venv
 $ .\venv\Scripts\activate
-
 ```
 Install the required dependencies
 ```
@@ -65,8 +65,8 @@ $ (venv) python app.py
 - **Frontend**: HTML, CSS, JavaScript
 - **API**: Gemini
 - **Styling**: Bootstrap 5
-
 ---
+
 **Happy Coding.**
 
 
