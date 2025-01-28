@@ -30,6 +30,35 @@ Your AI Assistant is an interactive chatbot application built with Flask for bac
 
 ---
 
+## Getting Started
+
+Follow these steps to set up and run Gemini Chatbot on your local machine.
+
+### Prerequisites
+
+- Python 3.8+
+- pip (Python package manager)
+- Git
+
+## Initial Setup:
+This repo currently contains the starter files.
+
+Clone repo and create a virtual environment
+```
+$ git clone https://github.com/Sayan520/Your-AI-Assistant.git
+$ python -m venv venv
+$ .\venv\Scripts\activate
+
+```
+Install the required dependencies
+```
+$ (venv) pip install -r requirements.txt
+```
+Running the Application
+```
+$ (venv) python app.py
+```
+
 ## Tech Stack
 
 - **Backend**: Flask (Python)
