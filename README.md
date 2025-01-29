@@ -1,6 +1,6 @@
 # Your AI Assistant
 
-![Chatbot Screenshot](screenshot.png)
+![Chatbot Screenshot](screenshot.jpg)
 
 Your AI Assistant is an interactive chatbot application built with Flask for backend logic and JavaScript for frontend interactivity. Designed with user-friendly features, it enables easy integration and customization for various chatbot use cases.
 
