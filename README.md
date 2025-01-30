@@ -10,7 +10,7 @@ Your AI Assistant is an interactive chatbot application built with Flask for bac
 
 1. **Interactive Design**: Displays user messages on the right and chatbot responses on the left for clear conversation tracking.
 2. **Ease of Extension**: Modular design allows developers to easily modify chatbot logic.
-3. **Responsive UI**: Mobile and desktop-friendly design using Bootstrap.
+3. **Responsive UI**: Mobile and desktop-friendly design.
 4. **Open Source**: Contribute and adapt the project for different purposes.
 
 ---
@@ -22,11 +22,11 @@ Your AI Assistant is an interactive chatbot application built with Flask for bac
 - Messages are dynamically styled for readability.
 
 ### 2. Backend Customization
-- Easily extend chatbot logic in `chatbot_logic.py`.
+- Easily extend chatbot logic in `chatbot.py`.
 - Ready for integration with APIs or machine learning models.
 
 ### 3. Responsive Design
-- Mobile-friendly and adaptable UI using Bootstrap.
+- Mobile-friendly and adaptable UI.
 
 ---
 
@@ -44,7 +44,7 @@ Follow these steps to set up and run Gemini Chatbot on your local machine.
 
 This repo currently contains the starter files.
 
-1. Clone the repository & create a virtual environment
+1. Clone the repository & Create a virtual environment (Windows)
 ```
 $ git clone https://github.com/Sayan520/Your-AI-Assistant.git
 $ python -m venv venv
@@ -63,8 +63,7 @@ $ (venv) python app.py
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML, CSS, JavaScript
-- **API**: Gemini
-- **Styling**: Bootstrap 5
+- **API**: Gemini API
 ---
 
 **Happy Coding.**
