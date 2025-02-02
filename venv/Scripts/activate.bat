@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Aiinhome POCs\Python\GEMINI\Your-Friendly-Gemini-Chatbot-\venv
+set VIRTUAL_ENV=C:\Github Projects\Your-AI-Assistant\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
