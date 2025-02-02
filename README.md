@@ -63,7 +63,7 @@ $ (venv) python app.py
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML, CSS, JavaScript
-- **API**: Gemini API
+- **API**: Gemini
 ---
 
 **Happy Coding.**
