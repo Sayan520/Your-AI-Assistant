@@ -2,22 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI Assistant</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap">
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
+
     <div class="chat-container">
         <h1>Your AI Assistant</h1>
+
+        <!-- Chat Messages Container -->
         <div class="messages" id="messages"></div>
+
+        <!-- Input Section -->
         <div class="input-group">
-            <input type="text" class="form-control" id="messageInput" placeholder="Type a message...">
-            <button class="btn btn-primary" id="sendBtn">Send</button>
-        </div>
+            <input type="text" id="messageInput" placeholder="Type or speak a message...">
+            <button id="sendBtn">Send</button>
+            <button id="micBtn">
+                <img id="micIcon" src="static/microphone.gif" alt="Mic" width="25">
+            </button>
+        </div>                
     </div>
+    
 
     <script src="static/main.js"></script>
 </body>
 </html>
-
-

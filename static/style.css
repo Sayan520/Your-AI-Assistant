@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Merriweather Sans', serif;
   background: url('image2.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
@@ -7,59 +7,52 @@ body {
   padding: 0;
 }
 
+/* Chat Container */
 .chat-container {
   max-width: 700px;
   margin: 50px auto;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(1px);
   display: flex;
   flex-direction: column;
 }
 
 .chat-container h1 {
-  font-weight: 700;
+  font-weight: 900;
+  font-size: 2.5rem;
   color: #00bfff;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-bottom: 2px solid #00bfff;
   padding-bottom: 10px;
+  letter-spacing: 1px;
 }
 
-/* GIFs Container */
-.gif-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.gif-container img {
-  max-width: 100px;
-  height: auto;
-  margin: 5px;
-  border-radius: 10px;
-}
-
-/* Message container should be under the GIFs */
+/* Chat Messages */
 .messages {
   max-height: 400px;
   overflow-y: auto;
-  padding: 10px;
-  background: transparent;
-  border-radius: 10px;
+  padding: 15px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
 }
 
-/* Message styling */
+/* Smooth fade-in effect */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .message {
   display: flex;
   align-items: center;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 /* User message */
@@ -68,14 +61,17 @@ body {
 }
 
 .message.user .text {
-  background-color: rgba(0, 123, 255, 0.7);
+  background: linear-gradient(135deg, #007bff 30%, #00bfff 100%);
   color: #fff;
-  border-radius: 15px 15px 0 15px;
+  border-radius: 18px 18px 0 18px;
   text-align: left;
-  max-width: 70%;
-  padding: 12px 16px;
+  max-width: 75%;
+  padding: 12px 18px;
   word-wrap: break-word;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  font-weight: 400; /* Medium weight for text readability */
+  font-size: 1rem;
+  line-height: 1.5; /* Improved line spacing */
 }
 
 .message.user img {
@@ -89,14 +85,14 @@ body {
 }
 
 .message.bot .text {
-  background-color: rgba(224, 224, 224, 0.7);
+  background: rgba(224, 224, 224, 0.85);
   color: #000;
-  border-radius: 15px 15px 15px 0;
+  border-radius: 18px 18px 18px 0;
   text-align: left;
-  max-width: 70%;
-  padding: 12px 16px;
+  max-width: 75%;
+  padding: 12px 18px;
   word-wrap: break-word;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
 }
 
 .message.bot img {
@@ -106,52 +102,147 @@ body {
 
 /* Chatbot & User Avatar */
 .message img {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
-/* Input Group Styling */
-.input-group {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-
-#messageInput {
-  flex-grow: 1;
-  border-radius: 20px;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  outline: none;
-}
-
-#messageInput::placeholder {
-  color: white;
-  opacity: 1;
-}
-
-#sendBtn {
-  border-radius: 20px;
-  margin-left: 10px;
-  padding: 10px 25px;
-  background: rgba(0, 191, 255, 0.9);
-  border: none;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#sendBtn:hover {
-  background: rgba(0, 150, 255, 1);
-}
-
+/* Typing Indicator */
 .typing {
   font-style: italic;
   color: #ddd;
+}
+
+/* Blinking dots animation */
+@keyframes blink {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+.typing .dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background-color: #ddd;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: blink 1.5s infinite;
+}
+
+.typing .dot:nth-child(1) { animation-delay: 0s; }
+.typing .dot:nth-child(2) { animation-delay: 0.2s; }
+.typing .dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Input Group */
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 8px 12px;
+  width: 98%;
+}
+
+/* Input Field */
+#messageInput {
+  flex-grow: 1;
+  border-radius: 20px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+#messageInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* Send Button */
+#sendBtn {
+  border-radius: 20px;
+  padding: 10px 30px;
+  background: linear-gradient(135deg, #00bfff 30%, #007bff 100%);
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700; /* Bold for emphasis */
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 10px;
+}
+
+#sendBtn:hover {
+  background: linear-gradient(135deg, #007bff 30%, #0056b3 100%);
+  transform: scale(1.05);
+}
+
+/* Microphone Button */
+#micBtn {
+  background: #aec8eb;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1px;
+  transition: 0.3s;
+}
+
+#micBtn:hover {
+  background: rgba(255, 241, 241, 0.3);
+}
+
+/* Microphone Icon */
+#micIcon {
+  width: 35px;
+  height: 35px;
+}
+
+/* 🔹 RESPONSIVE FIXES */
+@media screen and (max-width: 768px) {
+  .chat-container {
+      width: 95%;
+      margin: 20px auto;
+  }
+
+  .messages {
+      max-height: 300px;
+  }
+
+  .input-group {
+      width: 100%;
+      padding: 6px 10px;
+  }
+
+  #messageInput {
+      font-size: 0.9rem;
+      padding: 10px;
+  }
+
+  #sendBtn {
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      margin-right: 5px;
+  }
+
+  #micBtn {
+      width: 35px;
+      height: 35px;
+  }
+
+  #micIcon {
+      width: 28px;
+      height: 28px;
+  }
 }
