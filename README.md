@@ -10,7 +10,7 @@ Your AI Assistant is an interactive chatbot application built with Flask (backen
 
 ✅ **Interactive Design**: Displays user messages on the right and chatbot responses on the left for clear conversation tracking.  
 ✅ **Voice-Enabled**: Users can **speak messages** via the microphone button.  
-✅ **Text-to-Speech (TTS)**: The chatbot **reads out responses aloud**.(Currently deactived due to negative feedback)
+✅ **Text-to-Speech (TTS)**: The chatbot **reads out responses aloud**.(Disabled due to negative feedback)
 ✅ **Ease of Extension**: Modular design allows developers to easily modify chatbot logic.  
 ✅ **Responsive UI**: Fully mobile-friendly and desktop-compatible.  
 ✅ **Open Source**: Contribute and adapt the project for different use cases.  
