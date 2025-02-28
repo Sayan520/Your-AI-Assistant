@@ -186,21 +186,45 @@ body {
 
 /* Microphone Button */
 #micBtn {
-  background: #aec8eb;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  all: unset;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 1px;
-  transition: 0.3s;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: transparent; /* Default state: transparent */
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-#micBtn:hover {
-  background: rgba(255, 241, 241, 0.3);
+#micBtn i {
+  color: white; /* White mic icon */
+  font-size: 60px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* 🔹 Smooth Glow Effect While Recording */
+#micBtn.recording {
+  background: rgba(0, 191, 255, 0.3); /* Stronger blue */
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 0 25px rgba(0, 191, 255, 0.6); /* More intense glow */
+}
+
+/* Mic Icon Turns Blue While Recording */
+#micBtn.recording i {
+    color: rgba(0, 191, 255, 1); /* Brighter blue mic icon */
+}
+
+@media (hover: hover) {
+  #micBtn:not(.recording):hover {
+      background: rgba(0, 191, 255, 0.2);
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+  }
+}
+
+#micBtn.recording {
+  background: rgba(0, 191, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.8), 0 0 25px rgba(0, 191, 255, 0.6);
 }
 
 /* Microphone Icon */
@@ -237,12 +261,29 @@ body {
   }
 
   #micBtn {
-      width: 35px;
-      height: 35px;
-  }
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: black; /* Default black background */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+}
 
   #micIcon {
       width: 28px;
       height: 28px;
   }
 }
+
+  /* Mic Recording Animation */
+  @keyframes micPulse {
+    0% { transform: scale(1); box-shadow: 0 0 5px rgba(0, 191, 255, 0.5); }
+    50% { transform: scale(1.2); box-shadow: 0 0 15px rgba(0, 191, 255, 0.9); }
+    100% { transform: scale(1); box-shadow: 0 0 5px rgba(0, 191, 255, 0.5); }
+  }
+
+ 

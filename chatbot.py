@@ -11,7 +11,7 @@ class ChatBot:
     def __init__(self, api_key):
         self.genai = genai
         self.genai.configure(api_key=api_key)
-        self.model = self.genai.GenerativeModel('gemini-pro')
+        self.model = self.genai.GenerativeModel("gemini-1.5-pro")
         self.conversation = None
         self.history = []
 
