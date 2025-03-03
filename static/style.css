@@ -1,6 +1,6 @@
 body {
   font-family: 'Merriweather Sans', serif;
-  background: url('image2.jpg') no-repeat center center fixed;
+  background: url('/static/assets/image2.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #fff;
   margin: 0;
@@ -14,7 +14,8 @@ body {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 191, 255, 0.4);
+  box-shadow: 0px 0px 15px rgba(0, 191, 255, 0.2);
   backdrop-filter: blur(1px);
   display: flex;
   flex-direction: column;
@@ -175,13 +176,14 @@ body {
   font-size: 1rem;
   font-weight: 700; /* Bold for emphasis */
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s;
   margin-right: 10px;
 }
 
 #sendBtn:hover {
   background: linear-gradient(135deg, #007bff 30%, #0056b3 100%);
   transform: scale(1.05);
+  box-shadow: 0px 0px 5px rgba(0, 191, 255, 0.8);
 }
 
 /* Microphone Button */

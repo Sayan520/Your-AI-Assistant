@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         messageDiv.classList.add("message", role);
 
         const avatar = document.createElement("img");
-        avatar.src = role === "user" ? "static/icons8-circled-user-male-skin-type-4.gif" : "static/icons8-robot.gif";
+        avatar.src = role === "user" ? "static/assets/icons8-circled-user-male-skin-type-4.gif" : "static/assets/icons8-robot.gif";
         avatar.alt = role === "user" ? "User" : "Bot";
 
         const textDiv = document.createElement("div");
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         typingDiv.classList.add("message", "bot");
 
         const avatar = document.createElement("img");
-        avatar.src = "static/icons8-robot.gif";
+        avatar.src = "static/assets/icons8-robot.gif";
         avatar.alt = "Bot";
 
         const textDiv = document.createElement("div");
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
             messagesDiv.removeChild(typingIndicator);
             addMessage("bot", "Error occurred, please try again.");
         } 
-    
+        
         messageInput.disabled = false;
         sendBtn.disabled = false;
         sendBtn.textContent = "Send";
