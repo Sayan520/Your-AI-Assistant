@@ -73,6 +73,23 @@ document.addEventListener("DOMContentLoaded", function () {
         return typingDiv;
     }
 
+    // 🗣️ Function to Make the Bot Speak (Commented out for future use)
+    function speakText(text) {
+        const speech = new SpeechSynthesisUtterance(text);
+        speech.lang = "en-US";  // Set language
+        speech.rate = 1;  // Speed (1 = normal, 0.5 = slow, 1.5 = fast)
+        speech.pitch = 1;  // Pitch (1 = normal, 0.5 = deep, 1.5 = high)
+        speech.volume = 1;  // Volume (0 to 1)
+
+        // Use the first available voice
+        const voices = speechSynthesis.getVoices();
+        if (voices.length > 0) {
+            speech.voice = voices[0];
+        }
+
+        speechSynthesis.speak(speech);
+    }
+
     async function sendMessage() {
         const userMessage = messageInput.value.trim();
         if (!userMessage) return;  
@@ -96,10 +113,16 @@ document.addEventListener("DOMContentLoaded", function () {
             messagesDiv.removeChild(typingIndicator);  
             addMessage("bot", data.response);
             
+            // 🗣️ Uncomment this line if you want the bot to speak its response
+            // speakText(data.response);
+
         } catch (error) {
             console.error("Error:", error);
             messagesDiv.removeChild(typingIndicator);
             addMessage("bot", "Error occurred, please try again.");
+            
+            // 🗣️ Uncomment this line if you want the bot to speak the error message
+            // speakText("Error occurred, please try again.");
         } 
         
         messageInput.disabled = false;
