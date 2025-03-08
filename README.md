@@ -1,6 +1,4 @@
 # Your AI Assistant 🤖  
-
-[🎥 Watch the Demo Video]
 https://github.com/user-attachments/assets/4e32a659-5d57-433f-8ad3-de7e29d3a720
 
 
