@@ -1,6 +1,6 @@
 # Your AI Assistant 🤖  
 
-![Chatbot Screenshot](Chatbot.jpg)  
+[🎥 Watch the Demo Video](https://github.com/Sayan520/Your-AI-Assistant/raw/main/static/assets/stages/(DEMO)Yours%20AI%20Assistant%20(1).mp4)  
 
 Your AI Assistant is an interactive chatbot application built with Flask (backend) and JavaScript (frontend). It features a **modern, responsive UI**, **speech recognition (voice input)**, and **text-to-speech (TTS)** to provide a seamless chat experience. Whether you need a **smart virtual assistant**, this project provides a solid foundation for AI-driven applications.  
 
