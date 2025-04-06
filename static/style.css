@@ -236,14 +236,14 @@ body {
 }
 
 /* 🔹 RESPONSIVE FIXES */
-@media screen and (max-width: 412px) {
+@media screen and (max-width: 768px) {
   .chat-container {
-      width: 85%;
+      width: 95%;
       margin: 20px auto;
   }
 
   .messages {
-      max-height: 200px;
+      max-height: 300px;
   }
 
   .input-group {
@@ -257,16 +257,16 @@ body {
   }
 
   #sendBtn {
-      padding: 8px 15px;
+      padding: 8px 20px;
       font-size: 0.9rem;
-      margin: 2px;
+      margin-right: 5px;
   }
 
   #micBtn {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: transparent;
+    background: black; /* Default black background */
     border: none;
     display: flex;
     align-items: center;
@@ -276,8 +276,8 @@ body {
 }
 
   #micIcon {
-      width: 30px;
-      height: 30px;
+      width: 28px;
+      height: 28px;
   }
 }
 
