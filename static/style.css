@@ -178,7 +178,7 @@ body {
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, box-shadow 0.3s;
-  margin: 8px;
+  margin: 4px;
 }
 
 #sendBtn:hover {
@@ -236,7 +236,7 @@ body {
   height: 35px;
 }
 
-/* 🔹 RESPONSIVE FIXES */
+/* RESPONSIVE SCREEN */
 @media screen and (max-width: 412px) {
   .chat-container {
       width: 85%;

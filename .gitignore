@@ -1,5 +1,6 @@
 # Ignore the virtual environment folder
 venv
+credentials.ini
 
 # Ignore Python cache files
 __pycache__/
