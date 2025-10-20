@@ -1,3 +1,4 @@
+/* DOM Content For Loaded */
 document.addEventListener("DOMContentLoaded", function () {
     const sendBtn = document.getElementById("sendBtn");  // The "Send" button
     const messageInput = document.getElementById("messageInput");  // The text input field
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.key === "Enter") sendMessage();
     });
 
-    // 🎤 Voice Input Setup
+    // Voice Input Setup
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = "en-US";  
     recognition.continuous = false;  
@@ -30,6 +31,72 @@ document.addEventListener("DOMContentLoaded", function () {
         micBtn.classList.remove("recording");  // Stop animation
     };       
 
+    // Function to Format Message Text
+    function formatMessage(text) {
+    text = text.trim();
+    const lines = text.split('\n');
+
+    const formattedLines = lines.map(line => {
+        // Convert **bold** and _italics_
+        line = line
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/_(.+?)_/g, '<em>$1</em>');
+
+        // Convert bullet points
+        if (/^•\s+/.test(line)) {
+        let content = line.replace(/^•\s+/, '');
+        content = content.replace(/^([^:]+):/, '<strong>$1:</strong>');
+        return '<li>' + content + '</li>';
+        }
+
+        // Convert numbered list items
+        if (/^\d+\)\s+/.test(line)) {
+        let content = line.replace(/^\d+\)\s+/, '');
+        content = content.replace(/^([^:]+):/, '<strong>$1:</strong>');
+        return '<li>' + content + '</li>';
+        }
+
+        // Convert headings
+        if (/^#+\s*/.test(line)) {
+        const level = line.match(/^#+/)[0].length;
+        const content = line.replace(/^#+\s*/, '');
+        return `<h${level}>${content}</h${level}>`;
+        }
+
+        // Default: treat as paragraph
+        return '<p>' + line + '</p>';
+    });
+
+    // Wrap list items in <ul> or <ol> blocks
+    let finalOutput = '';
+    let listBuffer = [];
+    let listType = null;
+
+    const flushList = () => {
+        if (listBuffer.length > 0 && listType) {
+        finalOutput += `<${listType}>` + listBuffer.join('') + `</${listType}>`;
+        listBuffer = [];
+        listType = null;
+        }
+    };
+
+    formattedLines.forEach(line => {
+        if (line.startsWith('<li>')) {
+        listBuffer.push(line);
+        if (!listType) {
+            listType = line.includes('<strong>') && /^\d+\)/.test(line) ? 'ol' : 'ul';
+        }
+        } else {
+        flushList();
+        finalOutput += line;
+        }
+    });
+
+    flushList();
+    return finalOutput;
+    }
+
+    // Function to Add Message to Chat
     function addMessage(role, text) {
         const messageDiv = document.createElement("div");
         messageDiv.classList.add("message", role);
@@ -40,7 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const textDiv = document.createElement("div");
         textDiv.classList.add("text");
-        textDiv.textContent = text;
+        
+        // format the message text
+        textDiv.innerHTML = formatMessage(text);
 
         messageDiv.appendChild(avatar);
         messageDiv.appendChild(textDiv);
@@ -54,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
+    // Function to Simulate Typing Indicator
     function simulateTyping() {
         const typingDiv = document.createElement("div");
         typingDiv.classList.add("message", "bot");
@@ -73,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return typingDiv;
     }
 
-    // 🗣️ Function to Make the Bot Speak (Commented out for future use)
+    // Function to Make the Bot Speak (Commented out for future use)
     function speakText(text) {
         const speech = new SpeechSynthesisUtterance(text);
         speech.lang = "en-US";  // Set language
@@ -90,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         speechSynthesis.speak(speech);
     }
 
+    // Function to Send Message to Backend
     async function sendMessage() {
         const userMessage = messageInput.value.trim();
         if (!userMessage) return;  
@@ -113,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
             messagesDiv.removeChild(typingIndicator);  
             addMessage("bot", data.response);
             
-            // 🗣️ Uncomment this line if you want the bot to speak its response
+            // Uncomment this line if you want the bot to speak its response
             // speakText(data.response);
 
         } catch (error) {
@@ -121,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
             messagesDiv.removeChild(typingIndicator);
             addMessage("bot", "Error occurred, please try again.");
             
-            // 🗣️ Uncomment this line if you want the bot to speak the error message
+            // Uncomment this line if you want the bot to speak the error message
             // speakText("Error occurred, please try again.");
         } 
         

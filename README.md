@@ -79,16 +79,13 @@ python -m venv venv
 ---
 
 ## 📲 Demo
-```
-https://your-ai-assistant.onrender.com
-```
+**https://your-ai-assistant.onrender.com**
+
 ---
 
 ## 🌟 Contribute & Contact
-- You can fork the repo, submit pull requests, or suggest improvements.
-Have questions, feedback, or want to contribute? 
- 
-send an email to:  
+You can fork the repo, submit pull requests, or suggest improvements.
+If you have questions or any feedback just send an email to:  
 📧 **ghoshsayan5205@gmail.com**
 
 ---

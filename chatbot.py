@@ -1,3 +1,4 @@
+import re
 import google.generativeai as genai
 from google.generativeai.types import GenerationConfig
 
@@ -7,14 +8,13 @@ class GenAIException(Exception):
 
 # ChatBot class to interact with Gemini AI
 class ChatBot:
-    """A chatbot powered by Gemini AI."""
     CHATBOT_NAME = 'Gemini AI Assistant'
 
     # Constructor to initialize the API, model, and history
     def __init__(self, api_key):
         self.genai = genai
         self.genai.configure(api_key=api_key)
-        self.model = self.genai.GenerativeModel("gemini-1.5-flash")
+        self.model = self.genai.GenerativeModel("gemini-2.5-flash")
         self.conversation = None
         self.history = []
 
@@ -32,12 +32,27 @@ class ChatBot:
             raise GenAIException("Temperature must be between 0 and 1.")
 
         try:
+            # Gemini formatting instruction for clean, readable output
+            format_instruction = (
+                "You are a intelligent AI assistant, ready to help. When replying, output plain readable text only.\n"
+                "Do NOT include raw Markdown symbols like **, *, `, #, or -.\n"
+                "Instead, format your response as follows:\n"
+                "- Bold text → UPPERCASE\n"
+                "- Italic text → wrap with underscores (_like this_)\n"
+                "- Bullet points → use • for each item\n"
+                "- Numbered lists → use 1), 2), etc.\n"
+                "- Keep spacing and readability natural\n\n"
+                f"Now answer the user query below in this format:\n {prompt}"
+            )
+
             response = self.conversation.send_message(
-                content=prompt,
+                content=format_instruction,
                 generation_config=GenerationConfig(temperature=temperature)
             )
-            return response.text
-        
+
+            # Return the cleaned, readable text
+            return response.text.strip()
+
         except Exception as e:
             raise GenAIException(f"Error in AI response: {e}")
 
@@ -45,6 +60,7 @@ class ChatBot:
     def clear_conversation(self):
         """Clear the conversation history."""
         self.conversation = self.model.start_chat(history=[])
+        self.history = []
         print("Conversation history cleared.")
 
     # Starts a new conversation with optional preloaded messages
