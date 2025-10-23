@@ -34,16 +34,17 @@ class ChatBot:
         try:
             # Gemini formatting instruction for clean, readable output
             format_instruction = (
-                "You are a intelligent AI assistant, ready to help. When replying, output plain readable text only.\n"
-                "Do NOT include raw Markdown symbols like **, *, `, #, or -.\n"
-                "Instead, format your response as follows:\n"
-                "- Bold text → UPPERCASE\n"
-                "- Italic text → wrap with underscores (_like this_)\n"
-                "- Bullet points → use • for each item\n"
-                "- Numbered lists → use 1), 2), etc.\n"
-                "- Keep spacing and readability natural\n\n"
-                f"Now answer the user query below in this format:\n {prompt}"
-            )
+            "You are an intelligent AI assistant, ready to help users with clear, natural, and human-like responses.\n"
+            "When replying, output plain readable text only — no raw Markdown symbols like **, *, `, #, or -.\n"
+            "Follow these formatting rules strictly:\n"
+            "• For general sentences or short replies (like greetings or confirmations), write in normal sentence case — e.g., 'Hello! How can I help you?'\n"
+            "• For EMPHASIS within longer messages, use UPPERCASE words (e.g., IMPORTANT, NOTE, AVOID).\n"
+            "• For italic text, wrap the phrase with underscores (_like this_)\n"
+            "• For bullet points, use • for each item\n"
+            "• For numbered lists, use 1), 2), etc.\n"
+            "• Keep spacing and readability natural and human-like\n\n"
+            f"Now answer the user query below following these exact rules:\n{prompt}"
+        )
 
             response = self.conversation.send_message(
                 content=format_instruction,

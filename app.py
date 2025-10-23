@@ -1,14 +1,19 @@
-from flask import Flask, request, jsonify, render_template
-from configparser import ConfigParser
+import os
+from dotenv import load_dotenv
 from chatbot import ChatBot, GenAIException
+from flask import Flask, request, jsonify, render_template
 
 # Initialize Flask app
 app = Flask(__name__)
 
-# Load credentials and initialize ChatBot
-config = ConfigParser()
-config.read('credentials.ini')
-api_key = config['gemini_ai']['API_KEY']
+# Load environment
+load_dotenv()
+
+# --- Fetch API Key ---
+api_key = os.getenv("API_KEY")
+
+if not api_key:
+    raise ValueError("API_KEY not found. Please set it in Render or in your .env file.")
 
 # Create a ChatBot instance
 chatbot = ChatBot(api_key=api_key)
